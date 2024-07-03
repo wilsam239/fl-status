@@ -109,7 +109,7 @@ interface FLRoute {
 const devUrls: FLRoute[] = [
   {
     title: 'Homestead Dev',
-    url: 'https:/dev.farmlab.com.au/vasat/siteInfo',
+    url: 'https://dev.farmlab.com.au/vasat/siteInfo',
   },
   {
     title: 'Shepherd Dev',
