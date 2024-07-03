@@ -242,7 +242,7 @@ onMounted(() => {
   refresh();
   setInterval(() => {
     refresh();
-  }, 10000);
+  }, 15000);
 });
 
 function refresh() {
