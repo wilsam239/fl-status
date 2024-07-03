@@ -10,15 +10,13 @@
         </div>
       </div>
       <div class="row justify-center">
-        <q-card class="route-card" flat bordered>
+        <q-card class="route-card" flat bordered dark>
           <q-card-section>
             <route-checker
               name="Homestead"
               route="https://my.lab.farm/siteInfo"
             ></route-checker>
           </q-card-section>
-
-          <q-separator />
 
           <q-card-section>
             <route-checker
@@ -27,8 +25,6 @@
             ></route-checker>
           </q-card-section>
 
-          <q-separator />
-
           <q-card-section>
             <route-checker
               name="Silo"
@@ -36,16 +32,12 @@
             ></route-checker>
           </q-card-section>
 
-          <q-separator />
-
           <q-card-section>
             <route-checker
               name="Dropzone"
               route="https://dropzone.lab.farm/site/info"
             ></route-checker>
           </q-card-section>
-
-          <q-separator />
 
           <q-card-section>
             <route-checker
@@ -94,6 +86,10 @@ img {
 
 .route-card {
   width: 75%;
+
+  .q-card__section {
+    border-bottom: 1px solid rgba(48, 52, 54, 0.28);
+  }
 }
 </style>
 <script setup lang="ts">
