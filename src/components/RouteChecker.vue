@@ -7,7 +7,14 @@
         <q-icon name="info" size="xs"> </q-icon>
       </div>
     </div>
-    <div class="row">
+    <div class="row items-center">
+      <!-- <div
+        class="route-info row justify-center items-center q-pa-xs q-mr-sm"
+        v-if="health !== 'good' && !!lastError"
+      >
+        <q-tooltip>{{ lastError }}</q-tooltip>
+        <q-icon name="question_mark" size="xs"> </q-icon>
+      </div> -->
       <div :class="'health-' + health">
         {{
           health == 'good'
@@ -275,7 +282,6 @@ function refresh() {
         attempts.value = attempts.value += 1;
         health.value =
           goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
-        lastError.value = `${JSON.stringify(err)}`;
       }
     )
     .then(() => {
