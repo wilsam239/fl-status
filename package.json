@@ -1,8 +1,8 @@
 {
-  "name": "sewer",
+  "name": "farmlab-status",
   "version": "1.0.0",
   "description": "Dashboard to view running gitlab pipelines",
-  "productName": "Sewer",
+  "productName": "farmlab-status",
   "author": "Sam Williamson <swilliamson239@hotmail.com>",
   "private": true,
   "scripts": {

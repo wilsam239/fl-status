@@ -7,7 +7,6 @@ import {
 } from 'vue-router';
 
 import routes from './routes';
-import { GitlabService } from 'src/services/gitlab.service';
 
 /*
  * If not building with SSR mode, you can
@@ -33,13 +32,6 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
-  });
-
-  const spotify = GitlabService;
-  Router.beforeEach(async (to, from) => {
-    if (to.name !== 'login' && !spotify.isLoggedIn) {
-      return { name: 'login' };
-    }
   });
 
   return Router;

@@ -1,101 +1,103 @@
 <template>
-  <q-layout view="hHh LpR fFf">
-    <q-header elevated class="bg-primary text-white">
-      <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+  <q-layout view="hHh lpR fFf">
+    <div>
+      <div class="masthead-container row items-center justify-center">
+        <!-- <div class="masthead-container-overlay"></div> -->
+        <div class="logo-container">
+          <a href="https://getfarmlab.com"
+            ><img alt="Page logo" src="src/assets/logo.png"
+          /></a>
+        </div>
+      </div>
+      <div class="row justify-center">
+        <q-card class="route-card" flat bordered>
+          <q-card-section>
+            <route-checker
+              name="Homestead"
+              route="https://my.lab.farm/siteInfo"
+            ></route-checker>
+          </q-card-section>
 
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="../assets/spotify-64.png" />
-          </q-avatar>
-          Sewer
-        </q-toolbar-title>
+          <q-separator />
 
-        <!-- <q-btn dense flat round icon="logout" @click="spotify.logout()" />
-        <q-btn dense flat round icon="refresh" @click="refreshToken" /> -->
-        <q-btn dense flat round icon="settings" @click="toggleSettingsDrawer" />
-        <q-btn dense flat round icon="menu" @click="toggleHistoryDrawer" />
-      </q-toolbar>
-    </q-header>
+          <q-card-section>
+            <route-checker
+              name="Shepherd"
+              route="https://accounts.lab.farm/site/info"
+            ></route-checker>
+          </q-card-section>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-      <project-list></project-list>
-    </q-drawer>
+          <q-separator />
 
-    <!-- <q-drawer show-if-above v-model="historyDrawerOpen" side="right" bordered>
+          <q-card-section>
+            <route-checker
+              name="Silo"
+              route="https://silo.lab.farm/site/info"
+            ></route-checker>
+          </q-card-section>
 
-      <recently-played></recently-played>
-    </q-drawer> -->
-    <!-- <q-drawer v-model="settingsDrawerOpen" side="right" bordered>
+          <q-separator />
 
-      <bingo-settings></bingo-settings>
-    </q-drawer> -->
+          <q-card-section>
+            <route-checker
+              name="Dropzone"
+              route="https://dropzone.lab.farm/site/info"
+            ></route-checker>
+          </q-card-section>
 
-    <q-page-container>
-      <!-- <playback-updater></playback-updater> -->
-      <router-view></router-view>
-    </q-page-container>
+          <q-separator />
 
-    <!-- <q-footer elevated class="bg-grey-10 text-white">
-      <q-toolbar>
-        <now-playing></now-playing>
-      </q-toolbar>
-    </q-footer> -->
-
-    <q-inner-loading
-      :showing="loading"
-      label="Loading..."
-      label-class="text-teal"
-      label-style="font-size: 2em"
-      size="lg"
-    />
+          <q-card-section>
+            <route-checker
+              name="Harvest"
+              route="https://harvest.lab.farm/site/info"
+            ></route-checker>
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
   </q-layout>
 </template>
+<style lang="scss">
+.masthead-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 300px;
+  border-bottom: 1px solid #d7d7d7;
+  background: #70bf46;
+  background-size: cover;
+  margin-bottom: 60px !important;
+}
 
+.masthead-container-overlay {
+  background-image: url('https://getfarmlab.com/wp-content/uploads/2023/04/Topography-Pattern.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.05;
+  mix-blend-mode: screen;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.logo-container {
+  width: 40%;
+}
+
+img {
+  max-width: 100%;
+  max-height: 140px;
+}
+
+.route-card {
+  width: 75%;
+}
+</style>
 <script setup lang="ts">
 import { tap } from 'rxjs/operators';
-import ProjectList from 'src/components/dashboard/ProjectList.vue';
-import { GitlabService } from 'src/services/gitlab.service';
 import { onMounted, ref } from 'vue';
-
-const gitlab = GitlabService;
-const expiresIn = ref(0);
-const leftDrawerOpen = ref(false);
-const historyDrawerOpen = ref(false);
-const settingsDrawerOpen = ref(false);
-
-const loading = ref(false);
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
-function toggleHistoryDrawer() {
-  if (settingsDrawerOpen.value && !historyDrawerOpen.value) {
-    toggleSettingsDrawer();
-  }
-  historyDrawerOpen.value = !historyDrawerOpen.value;
-}
-
-function toggleSettingsDrawer() {
-  if (historyDrawerOpen.value && !settingsDrawerOpen.value) {
-    toggleHistoryDrawer();
-  }
-  settingsDrawerOpen.value = !settingsDrawerOpen.value;
-}
-function refreshToken() {
-  gitlab.refreshToken().subscribe();
-}
-
-onMounted(() => {
-  gitlab.loadingState
-    .pipe(
-      tap((l) => {
-        loading.value = l;
-      })
-    )
-    .subscribe();
-  setInterval(() => {
-    expiresIn.value = Math.round((gitlab.expiry - Date.now()) / 1000 / 60);
-  }, 5000);
-});
+import RouteChecker from 'src/components/RouteChecker.vue';
 </script>
