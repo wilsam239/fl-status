@@ -29,8 +29,6 @@ function healthChecker(health: string) {
       envHealth.value = 'mixed';
     }
   }
-
-  console.info(`Health is now: ${envHealth.value}`);
   emit('health', envHealth.value);
 }
 </script>
