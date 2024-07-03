@@ -214,7 +214,7 @@ $bg-light-gray: #f5f5f5;
 
 <script setup lang="ts">
 import { tap } from 'rxjs/operators';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 export interface RouteProps {
   name: string;
   route: string;
@@ -238,11 +238,19 @@ const progBarClass = computed(
     }`
 );
 
+let refresher: NodeJS.Timeout | undefined = undefined;
+
 onMounted(() => {
   refresh();
-  setInterval(() => {
+  refresher = setInterval(() => {
     refresh();
   }, 15000);
+});
+
+onUnmounted(() => {
+  if (refresher) {
+    clearInterval(refresher);
+  }
 });
 
 function refresh() {
