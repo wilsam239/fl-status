@@ -5,9 +5,7 @@
         <!-- <div class="masthead-container-overlay"></div> -->
         <div class="logo-container">
           <a href="https://getfarmlab.com"
-            ><img
-              alt="Page logo"
-              src="https://my.lab.farm/siteInfo/logo_landscape_white.png"
+            ><img alt="Page logo" src="../assets/logo.png"
           /></a>
         </div>
       </div>
