@@ -18,7 +18,7 @@
       - {{ goodAttempts }}/{{ attempts }}
     </div>
   </div>
-  <div class="progress progress-striped active q-mt-md">
+  <div class="progress progress-striped active q-mt-md rounded-borders">
     <div
       role="progressbar "
       style="width: 100%"
