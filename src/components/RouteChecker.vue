@@ -221,6 +221,7 @@ export interface RouteProps {
 }
 type THealth = 'good' | 'bad' | 'okay';
 const props = defineProps<RouteProps>();
+const emit = defineEmits(['health']);
 
 const health = ref<THealth>();
 const attempts = ref<number>(0);
@@ -246,21 +247,26 @@ onMounted(() => {
 
 function refresh() {
   console.log(`Refreshing ${props.name}`);
-  fetch(props.route).then(
-    (resp) => {
-      attempts.value = attempts.value += 1;
-      if (resp.status < 400) {
-        goodAttempts.value = goodAttempts.value += 1;
-        health.value = 'good';
-      } else {
+  fetch(props.route)
+    .then(
+      (resp) => {
+        attempts.value = attempts.value += 1;
+        if (resp.status < 400) {
+          goodAttempts.value = goodAttempts.value += 1;
+          health.value = 'good';
+        } else {
+          health.value =
+            goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
+        }
+      },
+      (err) => {
+        attempts.value = attempts.value += 1;
         health.value =
           goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
       }
-    },
-    (err) => {
-      attempts.value = attempts.value += 1;
-      health.value = goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
-    }
-  );
+    )
+    .then(() => {
+      emit('health', health.value);
+    });
 }
 </script>
