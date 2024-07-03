@@ -60,7 +60,7 @@ module.exports = configure(function (/* ctx */) {
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      publicPath: 'farmlab-status',
+      publicPath: 'fl-status',
       // analyze: true,
       // env: {},
       // rawDefine: {}
@@ -193,7 +193,7 @@ module.exports = configure(function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'farmlab-status-quasar',
+        appId: 'fl-status-quasar',
       },
     },
 
