@@ -2,20 +2,22 @@
   <div class="row items-center justify-between">
     <div class="row">
       <div class="route-name q-pr-md">{{ name }}</div>
-      <div class="route-info row justify-center items-center q-pa-xs">
+      <div class="row justify-center items-center">
         <q-tooltip>{{ route }}</q-tooltip>
-        <q-icon name="question_mark" size="xs"> </q-icon>
+        <q-icon name="info" size="xs"> </q-icon>
       </div>
     </div>
-    <div :class="'health-' + health">
-      {{
-        health == 'good'
-          ? 'Operational'
-          : health == 'okay'
-          ? 'Dubious'
-          : 'Outage'
-      }}
-      - {{ goodAttempts }}/{{ attempts }}
+    <div class="row">
+      <div :class="'health-' + health">
+        {{
+          health == 'good'
+            ? 'Operational'
+            : health == 'okay'
+            ? 'Dubious'
+            : 'Outage'
+        }}
+        - {{ goodAttempts }}/{{ attempts }}
+      </div>
     </div>
   </div>
   <div class="progress progress-striped active q-mt-md rounded-borders">
@@ -226,6 +228,7 @@ const emit = defineEmits(['health']);
 const health = ref<THealth>();
 const attempts = ref<number>(0);
 const goodAttempts = ref<number>(0);
+const lastError = ref<string>('');
 
 const progBarClass = computed(
   () =>
@@ -265,12 +268,14 @@ function refresh() {
         } else {
           health.value =
             goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
+          lastError.value = `${resp.status} - ${resp.statusText}`;
         }
       },
       (err) => {
         attempts.value = attempts.value += 1;
         health.value =
           goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
+        lastError.value = `${JSON.stringify(err)}`;
       }
     )
     .then(() => {

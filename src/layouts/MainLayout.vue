@@ -129,7 +129,11 @@ const devUrls: FLRoute[] = [
   }, */
   {
     title: 'Harvest Dev',
-    url: 'https://harvest-dev.farmlab.com.au',
+    url: 'https://harvest-dev.farmlab.com.au/site/info',
+  },
+  {
+    title: 'Harvest 2 Dev',
+    url: 'https://harvest2-dev.farmlab.com.au/site/info',
   },
 ];
 
@@ -156,7 +160,7 @@ const stagingUrls: FLRoute[] = [
   }, */
   {
     title: 'Harvest Prod',
-    url: 'https://harvest.farmlab.com.au',
+    url: 'https://harvest.farmlab.com.au/site/info',
   },
 ];
 
@@ -183,7 +187,7 @@ const prodUrls: FLRoute[] = [
   }, */
   {
     title: 'Harvest',
-    url: 'https://harvest.farmlab.com.au',
+    url: 'https://harvest.farmlab.com.au/site/info',
   },
 ];
 
