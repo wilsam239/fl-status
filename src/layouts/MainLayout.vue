@@ -21,7 +21,7 @@
         </div>
         <q-banner
           inline-actions
-          class="text-white q-mb-md"
+          class="text-white q-mb-md info-banner"
           :class="bannerProps.class"
           rounded
         >
@@ -49,6 +49,9 @@
   </q-layout>
 </template>
 <style lang="scss">
+.info-banner {
+  z-index: 1;
+}
 .environment-selector {
   width: 200px;
 }
