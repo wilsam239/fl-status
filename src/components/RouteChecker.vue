@@ -36,7 +36,7 @@
     ></div>
   </div>
   <div
-    v-if="health == 'bad'"
+    v-if="lastAttemptHealth == 'bad' || health == 'bad'"
     class="restart-instructions rounded-borders q-pa-md q-mt-sm"
   >
     <code v-if="id == 'homestead'">
