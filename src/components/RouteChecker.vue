@@ -297,12 +297,21 @@ onUnmounted(() => {
 
 function refresh() {
   console.log(`Refreshing ${props.name}`);
-  fetch(props.route)
+  const fetchWithTimeout = (url: string, timeout = 5000): Promise<Response> => {
+    return Promise.race<Response>([
+      fetch(url),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Request timed out')), timeout)
+      ),
+    ]);
+  };
+
+  fetchWithTimeout(props.route)
     .then(
       (resp) => {
-        attempts.value = attempts.value += 1;
-        if (resp.status < 400) {
-          goodAttempts.value = goodAttempts.value += 1;
+        attempts.value += 1;
+        if (resp.ok) {
+          goodAttempts.value += 1;
           health.value = 'good';
           lastAttemptHealth.value = 'good';
         } else {
@@ -313,13 +322,19 @@ function refresh() {
         }
       },
       (err) => {
-        attempts.value = attempts.value += 1;
+        attempts.value += 1;
+        lastAttemptHealth.value = 'bad';
+        if (err.message === 'Request timed out') {
+          lastError.value = 'Request timed out';
+        } else {
+          lastError.value = err.message;
+        }
         health.value =
           goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
       }
     )
     .then(() => {
-      emit('health', health.value);
+      emit('health', { health: health.value, id: props.id });
     });
 }
 </script>

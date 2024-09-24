@@ -21,9 +21,11 @@ interface FLRoute {
 
 const props = defineProps<{ routes: FLRoute[] }>();
 const emit = defineEmits(['health']);
+const emittedRoutes: Set<string> = new Set();
 
 const envHealth = ref<string | undefined>(undefined);
-function healthChecker(health: string) {
+function healthChecker(routeHealth: { health: string; id: string }) {
+  const { health, id } = routeHealth;
   if (!envHealth.value) {
     envHealth.value = health;
   } else {
@@ -31,6 +33,9 @@ function healthChecker(health: string) {
       envHealth.value = 'mixed';
     }
   }
-  emit('health', envHealth.value);
+  emittedRoutes.add(id);
+  if (emittedRoutes.size === props.routes.length) {
+    emit('health', envHealth.value);
+  }
 }
 </script>
