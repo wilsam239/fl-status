@@ -311,8 +311,6 @@ function refresh() {
             goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
           lastError.value = `${resp.status} - ${resp.statusText}`;
         }
-
-        health.value = 'bad';
       },
       (err) => {
         attempts.value = attempts.value += 1;
