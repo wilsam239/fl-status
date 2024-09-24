@@ -106,23 +106,28 @@ import RouteChecker from 'src/components/RouteChecker.vue';
 import EnvironmentCard from 'src/components/EnvironmentCard.vue';
 
 interface FLRoute {
+  id: string;
   title: string;
   url: string;
 }
 const devUrls: FLRoute[] = [
   {
+    id: 'homestead',
     title: 'Homestead Dev',
     url: 'https://dev.farmlab.com.au/vasat/siteInfo',
   },
   {
+    id: 'shepherd',
     title: 'Shepherd Dev',
     url: 'https://accounts-dev.lab.farm/site/info',
   },
   {
+    id: 'dropzone',
     title: 'Dropzone Dev',
     url: 'https://dropzone-dev.lab.farm/site/info',
   },
   {
+    id: 'silo',
     title: 'Silo Dev',
     url: 'https://silo-dev.lab.farm/site/info',
   },
@@ -131,10 +136,7 @@ const devUrls: FLRoute[] = [
     url: 'https://analytics-dev.lab.farm/assets/config/site.json',
   }, */
   {
-    title: 'Harvest Dev',
-    url: 'https://harvest-dev.farmlab.com.au/site/info',
-  },
-  {
+    id: 'harvest2',
     title: 'Harvest 2 Dev',
     url: 'https://harvest2-dev.farmlab.com.au/site/info',
   },
@@ -142,18 +144,22 @@ const devUrls: FLRoute[] = [
 
 const stagingUrls: FLRoute[] = [
   {
+    id: 'homestead',
     title: 'Homestead Staging',
     url: 'https://staging.lab.farm/siteInfo',
   },
   {
+    id: 'shepherd',
     title: 'Shepherd Staging',
     url: 'https://accounts-staging.lab.farm/site/info',
   },
   {
+    id: 'dropzone',
     title: 'Dropzone Staging',
     url: 'https://dropzone-staging.lab.farm/site/info',
   },
   {
+    id: 'silo',
     title: 'Silo Staging',
     url: 'https://silo-stg.lab.farm/site/info',
   },
@@ -162,25 +168,30 @@ const stagingUrls: FLRoute[] = [
     url: 'https://analytics.lab.farm/assets/config/site.json',
   }, */
   {
-    title: 'Harvest Prod',
-    url: 'https://harvest.farmlab.com.au/site/info',
+    id: 'harvest2',
+    title: 'Harvest 2 Staging',
+    url: 'https://harvest2-staging.farmlab.com.au/site/info',
   },
 ];
 
 const prodUrls: FLRoute[] = [
   {
+    id: 'homestead',
     title: 'Homestead',
     url: 'https://my.lab.farm/siteInfo',
   },
   {
+    id: 'shepherd',
     title: 'Shepherd',
     url: 'https://accounts.lab.farm/site/info',
   },
   {
+    id: 'dropzone',
     title: 'Dropzone',
     url: 'https://dropzone.lab.farm/site/info',
   },
   {
+    id: 'silo',
     title: 'Silo',
     url: 'https://silo.lab.farm/site/info',
   },
@@ -189,8 +200,9 @@ const prodUrls: FLRoute[] = [
     url: 'https://analytics.lab.farm/assets/config/site.json',
   }, */
   {
-    title: 'Harvest',
-    url: 'https://harvest.farmlab.com.au/site/info',
+    id: 'harvest2',
+    title: 'Harvest 2',
+    url: 'https://harvest2.farmlab.com.au/site/info',
   },
 ];
 

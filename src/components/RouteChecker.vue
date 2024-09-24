@@ -35,9 +35,38 @@
       :class="progBarClass"
     ></div>
   </div>
+  <div
+    v-if="health == 'bad'"
+    class="restart-instructions rounded-borders q-pa-md q-mt-sm"
+  >
+    <code v-if="id == 'homestead'">
+      <div><span class="code-prefix">$ </span>sudo service farmlab restart</div>
+      <br />
+      <div>
+        <span class="code-prefix">
+          # If the above hangs, run the following
+        </span>
+      </div>
+      <div><span class="code-prefix">$ </span>sudo pkill -9 java</div>
+      <div>
+        <span class="code-prefix">$ </span>sudo rm /opt/prod/farmlab/RUNNING_PID
+      </div>
+
+      <div><span class="code-prefix">$ </span>sudo service farmlab restart</div>
+    </code>
+    <code v-else-if="['shepherd', 'silo', 'dropzone'].includes(id)">
+      <div>Restart ECS instance in AWS</div>
+    </code>
+    <code v-else>Restarting {{ id }} is a mystery at this time...</code>
+  </div>
 </template>
 
 <style lang="scss">
+.restart-instructions {
+  width: 100%;
+  background-color: #404040;
+}
+
 .route-name {
   font-size: 1.5em;
   font-weight: 500;
@@ -225,6 +254,7 @@ $bg-light-gray: #f5f5f5;
 import { tap } from 'rxjs/operators';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 export interface RouteProps {
+  id: string;
   name: string;
   route: string;
 }
@@ -236,6 +266,8 @@ const health = ref<THealth>();
 const attempts = ref<number>(0);
 const goodAttempts = ref<number>(0);
 const lastError = ref<string>('');
+
+const lastAttemptHealth = ref<THealth>();
 
 const progBarClass = computed(
   () =>
@@ -272,11 +304,15 @@ function refresh() {
         if (resp.status < 400) {
           goodAttempts.value = goodAttempts.value += 1;
           health.value = 'good';
+          lastAttemptHealth.value = 'good';
         } else {
+          lastAttemptHealth.value = 'bad';
           health.value =
             goodAttempts.value / attempts.value < 0.5 ? 'bad' : 'okay';
           lastError.value = `${resp.status} - ${resp.statusText}`;
         }
+
+        health.value = 'bad';
       },
       (err) => {
         attempts.value = attempts.value += 1;

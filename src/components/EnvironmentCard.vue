@@ -2,6 +2,7 @@
   <q-card class="route-card q-mb-md" flat bordered dark>
     <q-card-section v-for="route in routes" :key="route.title">
       <route-checker
+        :id="route.id"
         :name="route.title"
         :route="route.url"
         @health="healthChecker($event)"
@@ -13,6 +14,7 @@
 import { ref } from 'vue';
 import RouteChecker from './RouteChecker.vue';
 interface FLRoute {
+  id: string;
   title: string;
   url: string;
 }
