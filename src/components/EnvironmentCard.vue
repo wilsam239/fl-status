@@ -5,6 +5,7 @@
         :id="route.id"
         :name="route.title"
         :route="route.url"
+        :is-vasat-one="route.isVasatOne"
         @health="healthChecker($event)"
       ></route-checker>
     </q-card-section>
@@ -17,6 +18,7 @@ interface FLRoute {
   id: string;
   title: string;
   url: string;
+  isVasatOne?: boolean;
 }
 
 const props = defineProps<{ routes: FLRoute[] }>();

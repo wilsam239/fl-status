@@ -1,7 +1,9 @@
 <template>
   <div class="row items-center justify-between">
     <div class="row">
-      <div class="route-name q-pr-md">{{ name }}</div>
+      <div class="route-name q-pr-md">
+        {{ name }} - v{{ version || '0.0.0' }}
+      </div>
       <div class="row justify-center items-center">
         <q-tooltip>{{ route }}</q-tooltip>
         <q-icon name="info" size="xs"> </q-icon>
@@ -257,11 +259,13 @@ export interface RouteProps {
   id: string;
   name: string;
   route: string;
+  isVasatOne?: boolean;
 }
 type THealth = 'good' | 'bad' | 'okay';
 const props = defineProps<RouteProps>();
 const emit = defineEmits(['health']);
 
+const version = ref<string>();
 const health = ref<THealth>();
 const attempts = ref<number>(0);
 const goodAttempts = ref<number>(0);
@@ -306,7 +310,9 @@ function refresh() {
     ]);
   };
 
-  fetchWithTimeout(props.route)
+  const healthURL = props.route + (props.isVasatOne ? 'siteInfo' : 'site/info');
+  const versionURL = props.route + 'version';
+  fetchWithTimeout(healthURL)
     .then(
       (resp) => {
         attempts.value += 1;
@@ -336,5 +342,11 @@ function refresh() {
     .then(() => {
       emit('health', { health: health.value, id: props.id });
     });
+
+  fetchWithTimeout(versionURL).then((resp) => {
+    resp.text().then((r) => {
+      version.value = props.isVasatOne ? JSON.parse(r)['payload'] : r;
+    });
+  });
 }
 </script>

@@ -109,27 +109,29 @@ interface FLRoute {
   id: string;
   title: string;
   url: string;
+  isVasatOne?: boolean
 }
 const devUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Dev',
-    url: 'https://dev.farmlab.com.au/vasat/siteInfo',
+    url: 'https://dev.farmlab.com.au/vasat/',
+    isVasatOne: true
   },
   {
     id: 'shepherd',
     title: 'Shepherd Dev',
-    url: 'https://accounts-dev.lab.farm/site/info',
+    url: 'https://accounts-dev.lab.farm/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone Dev',
-    url: 'https://dropzone-dev.lab.farm/site/info',
+    url: 'https://dropzone-dev.lab.farm/',
   },
   {
     id: 'silo',
     title: 'Silo Dev',
-    url: 'https://silo-dev.lab.farm/site/info',
+    url: 'https://silo-dev.lab.farm/',
   },
   /* {
     title: 'Analytics Dev',
@@ -138,7 +140,7 @@ const devUrls: FLRoute[] = [
   {
     id: 'harvest2',
     title: 'Harvest 2 Dev',
-    url: 'https://harvest2-dev.farmlab.com.au/site/info',
+    url: 'https://harvest2-dev.farmlab.com.au/',
   },
 ];
 
@@ -146,22 +148,23 @@ const stagingUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Staging',
-    url: 'https://staging.lab.farm/siteInfo',
+    url: 'https://staging.lab.farm/',
+    isVasatOne: true
   },
   {
     id: 'shepherd',
     title: 'Shepherd Staging',
-    url: 'https://accounts-staging.lab.farm/site/info',
+    url: 'https://accounts-staging.lab.farm/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone Staging',
-    url: 'https://dropzone-staging.lab.farm/site/info',
+    url: 'https://dropzone-staging.lab.farm/',
   },
   {
     id: 'silo',
     title: 'Silo Staging',
-    url: 'https://silo-stg.lab.farm/site/info',
+    url: 'https://silo-stg.lab.farm/',
   },
   /* {
     title: 'Analytics',
@@ -170,7 +173,7 @@ const stagingUrls: FLRoute[] = [
   {
     id: 'harvest2',
     title: 'Harvest 2 Staging',
-    url: 'https://harvest2-staging.farmlab.com.au/site/info',
+    url: 'https://harvest2-staging.farmlab.com.au/',
   },
 ];
 
@@ -178,22 +181,23 @@ const prodUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead',
-    url: 'https://my.lab.farm/siteInfo',
+    url: 'https://my.lab.farm/',
+    isVasatOne: true
   },
   {
     id: 'shepherd',
     title: 'Shepherd',
-    url: 'https://accounts.lab.farm/site/info',
+    url: 'https://accounts.lab.farm/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone',
-    url: 'https://dropzone.lab.farm/site/info',
+    url: 'https://dropzone.lab.farm/',
   },
   {
     id: 'silo',
     title: 'Silo',
-    url: 'https://silo.lab.farm/site/info',
+    url: 'https://silo.lab.farm/',
   },
   /* {
     title: 'Analytics',
@@ -202,7 +206,7 @@ const prodUrls: FLRoute[] = [
   {
     id: 'harvest2',
     title: 'Harvest 2',
-    url: 'https://harvest2.farmlab.com.au/site/info',
+    url: 'https://harvest2.farmlab.com.au/',
   },
 ];
 
