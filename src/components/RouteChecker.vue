@@ -17,7 +17,15 @@
         <q-tooltip>{{ lastError }}</q-tooltip>
         <q-icon name="question_mark" size="xs"> </q-icon>
       </div> -->
-      <div :class="'health-' + health">
+      <q-badge
+        :color="
+          health == 'good'
+            ? 'primary'
+            : health == 'okay'
+            ? 'warning'
+            : 'negative'
+        "
+      >
         {{
           health == 'good'
             ? 'Operational'
@@ -26,7 +34,7 @@
             : 'Outage'
         }}
         - {{ goodAttempts }}/{{ attempts }}
-      </div>
+      </q-badge>
     </div>
   </div>
   <div class="progress progress-striped active q-mt-md rounded-borders">
