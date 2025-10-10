@@ -4,7 +4,7 @@
       <div class="masthead-container row items-center justify-center q-mb-md">
         <div class="masthead-container-overlay"></div>
         <div class="logo-container">
-          <a href="https://getfarmlab.com"
+          <a href="https://gexlab.com"
             ><img alt="Page logo" src="../assets/logo.png"
           /></a>
         </div>
@@ -65,12 +65,12 @@
   width: 100% !important;
   max-width: 100% !important;
   height: 250px;
-  background: #70bf46;
+  background: #3d70a4;
   background-size: cover;
 }
 
 .masthead-container-overlay {
-  background-image: url('https://getfarmlab.com/wp-content/uploads/2023/04/Topography-Pattern.png');
+  background-image: url('../assets/Topography-Pattern.png');
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.05;
@@ -109,38 +109,38 @@ interface FLRoute {
   id: string;
   title: string;
   url: string;
-  isVasatOne?: boolean
+  isVasatOne?: boolean;
 }
 const devUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Dev',
-    url: 'https://dev.farmlab.com.au/vasat/',
-    isVasatOne: true
+    url: 'https://projects-dev.gexlab.com/vasat/',
+    isVasatOne: true,
   },
   {
     id: 'shepherd',
     title: 'Shepherd Dev',
-    url: 'https://accounts-dev.lab.farm/',
+    url: 'https://accounts-dev.gexlab.com/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone Dev',
-    url: 'https://dropzone-dev.lab.farm/',
+    url: 'https://dropzone-dev.gexlab.com/',
   },
   {
     id: 'silo',
     title: 'Silo Dev',
-    url: 'https://silo-dev.lab.farm/',
+    url: 'https://silo-dev.gexlab.com/',
   },
   /* {
     title: 'Analytics Dev',
-    url: 'https://analytics-dev.lab.farm/assets/config/site.json',
+    url: 'https://analytics-dev.gexlab.com/assets/config/site.json',
   }, */
   {
     id: 'harvest2',
     title: 'Harvest 2 Dev',
-    url: 'https://harvest2-dev.farmlab.com.au/',
+    url: 'https://harvest2-dev.gexlab.com/',
   },
 ];
 
@@ -148,32 +148,32 @@ const stagingUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Staging',
-    url: 'https://staging.lab.farm/',
-    isVasatOne: true
+    url: 'https://projects-staging.gexlab.com/',
+    isVasatOne: true,
   },
   {
     id: 'shepherd',
     title: 'Shepherd Staging',
-    url: 'https://accounts-staging.lab.farm/',
+    url: 'https://accounts-staging.gexlab.com/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone Staging',
-    url: 'https://dropzone-staging.lab.farm/',
+    url: 'https://dropzone-staging.gexlab.com/',
   },
   {
     id: 'silo',
     title: 'Silo Staging',
-    url: 'https://silo-stg.lab.farm/',
+    url: 'https://silo-stg.gexlab.com/',
   },
   /* {
     title: 'Analytics',
-    url: 'https://analytics.lab.farm/assets/config/site.json',
+    url: 'https://analytics.gexlab.com/assets/config/site.json',
   }, */
   {
     id: 'harvest2',
     title: 'Harvest 2 Staging',
-    url: 'https://harvest2-staging.farmlab.com.au/',
+    url: 'https://harvest2-staging.gexlab.com/',
   },
 ];
 
@@ -181,32 +181,32 @@ const prodUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead',
-    url: 'https://my.lab.farm/',
-    isVasatOne: true
+    url: 'https://projects.gexlab.com/',
+    isVasatOne: true,
   },
   {
     id: 'shepherd',
     title: 'Shepherd',
-    url: 'https://accounts.lab.farm/',
+    url: 'https://accounts.gexlab.com/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone',
-    url: 'https://dropzone.lab.farm/',
+    url: 'https://dropzone.gexlab.com/',
   },
   {
     id: 'silo',
     title: 'Silo',
-    url: 'https://silo.lab.farm/',
+    url: 'https://silo.gexlab.com/',
   },
   /* {
     title: 'Analytics',
-    url: 'https://analytics.lab.farm/assets/config/site.json',
+    url: 'https://analytics.gexlab.com/assets/config/site.json',
   }, */
   {
     id: 'harvest2',
     title: 'Harvest 2',
-    url: 'https://harvest2.farmlab.com.au/',
+    url: 'https://harvest2.gexlab.com/',
   },
 ];
 
@@ -227,7 +227,7 @@ const bannerProps = computed(() => {
           text: `All Systems Dubious - ${selectedEnvironment.value}`,
         }
       : {
-          class: 'bg-green',
+          class: 'bg-blue',
           text: `All Systems Operational - ${selectedEnvironment.value}`,
         };
   } else {

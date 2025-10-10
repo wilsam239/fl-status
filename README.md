@@ -1,4 +1,4 @@
-# Farmlab Status Checker
+# GeXLab Status Checker
 
 Dashboard to view the status of all gitlab pipelines
 

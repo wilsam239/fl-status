@@ -96,7 +96,7 @@
 $brand-default: #b0bec5;
 $brand-primary: #2196f3;
 $brand-secondary: #323a45;
-$brand-success: #64dd17;
+$brand-success: #3d70a4;
 $brand-warning: #ffd600;
 $brand-info: #29b6f6;
 $brand-danger: #ef1c1c;
