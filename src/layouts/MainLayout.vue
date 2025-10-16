@@ -109,14 +109,21 @@ interface FLRoute {
   id: string;
   title: string;
   url: string;
-  isVasatOne?: boolean;
+  overrideVersionRoute?: string;
+  overrideHealthRoute?: string;
 }
 const devUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Dev',
     url: 'https://projects-dev.gexlab.com/vasat/',
-    isVasatOne: true,
+    overrideHealthRoute: 'siteInfo',
+  },
+  {
+    id: 'gms',
+    title: 'GeXLab Dev',
+    url: 'https://heavy-dev.gexlab.com/',
+    overrideVersionRoute: 'config/server_version.txt',
   },
   {
     id: 'shepherd',
@@ -149,7 +156,7 @@ const stagingUrls: FLRoute[] = [
     id: 'homestead',
     title: 'Homestead Staging',
     url: 'https://projects-staging.gexlab.com/',
-    isVasatOne: true,
+    overrideVersionRoute: 'siteInfo',
   },
   {
     id: 'shepherd',
@@ -182,7 +189,7 @@ const prodUrls: FLRoute[] = [
     id: 'homestead',
     title: 'Homestead',
     url: 'https://projects.gexlab.com/',
-    isVasatOne: true,
+    overrideVersionRoute: 'siteInfo',
   },
   {
     id: 'shepherd',

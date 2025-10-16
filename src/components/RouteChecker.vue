@@ -267,7 +267,8 @@ export interface RouteProps {
   id: string;
   name: string;
   route: string;
-  isVasatOne?: boolean;
+  overrideVersionRoute?: string;
+  overrideHealthRoute?: string;
 }
 type THealth = 'good' | 'bad' | 'okay';
 const props = defineProps<RouteProps>();
@@ -318,8 +319,8 @@ function refresh() {
     ]);
   };
 
-  const healthURL = props.route + (props.isVasatOne ? 'siteInfo' : 'site/info');
-  const versionURL = props.route + 'version';
+  const healthURL = props.route + (props.overrideHealthRoute ?? 'site/info');
+  const versionURL = props.route + (props.overrideVersionRoute ?? 'version');
   fetchWithTimeout(healthURL)
     .then(
       (resp) => {
@@ -353,7 +354,16 @@ function refresh() {
 
   fetchWithTimeout(versionURL).then((resp) => {
     resp.text().then((r) => {
-      version.value = props.isVasatOne ? JSON.parse(r)['payload'] : r;
+      try {
+        const v = JSON.parse(r)['payload'];
+        if (!!v) {
+          version.value = v;
+        } else {
+          throw new Error('payload is undefined');
+        }
+      } catch (e) {
+        version.value = r;
+      }
     });
   });
 }
