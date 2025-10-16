@@ -156,7 +156,7 @@ const stagingUrls: FLRoute[] = [
     id: 'homestead',
     title: 'Homestead Staging',
     url: 'https://projects-staging.gexlab.com/',
-    overrideVersionRoute: 'siteInfo',
+    overrideHealthRoute: 'siteInfo',
   },
   {
     id: 'shepherd',
@@ -189,7 +189,7 @@ const prodUrls: FLRoute[] = [
     id: 'homestead',
     title: 'Homestead',
     url: 'https://projects.gexlab.com/',
-    overrideVersionRoute: 'siteInfo',
+    overrideHealthRoute: 'siteInfo',
   },
   {
     id: 'shepherd',
