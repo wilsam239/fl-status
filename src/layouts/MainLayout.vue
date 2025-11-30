@@ -83,10 +83,6 @@
   position: absolute;
 }
 
-.logo-container {
-  width: 40%;
-}
-
 img {
   max-width: 100%;
   max-height: 140px;
