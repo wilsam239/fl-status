@@ -4,7 +4,7 @@
       <div class="masthead-container row items-center justify-center q-mb-md">
         <div class="masthead-container-overlay"></div>
         <div class="logo-container">
-          <a href="https://gexlab.com"
+          <a href="https://gxlab.com"
             ><img alt="Page logo" src="../assets/logo.png"
           /></a>
         </div>
@@ -116,38 +116,38 @@ const devUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Dev',
-    url: 'https://projects-dev.gexlab.com/vasat/',
+    url: 'https://projects-dev.gxlab.com/vasat/',
     overrideHealthRoute: 'siteInfo',
   },
   {
     id: 'gms',
-    title: 'GeXLab Dev',
-    url: 'https://heavy-dev.gexlab.com/',
+    title: 'GXLab Dev',
+    url: 'https://heavy-dev.gxlab.com/',
     overrideVersionRoute: 'config/server_version.txt',
   },
   {
     id: 'shepherd',
     title: 'Shepherd Dev',
-    url: 'https://accounts-dev.gexlab.com/',
+    url: 'https://accounts-dev.gxlab.com/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone Dev',
-    url: 'https://dropzone-dev.gexlab.com/',
+    url: 'https://dropzone-dev.gxlab.com/',
   },
   {
     id: 'silo',
     title: 'Silo Dev',
-    url: 'https://silo-dev.gexlab.com/',
+    url: 'https://silo-dev.gxlab.com/',
   },
   /* {
     title: 'Analytics Dev',
-    url: 'https://analytics-dev.gexlab.com/assets/config/site.json',
+    url: 'https://analytics-dev.gxlab.com/assets/config/site.json',
   }, */
   {
     id: 'harvest2',
     title: 'Harvest 2 Dev',
-    url: 'https://harvest2-dev.gexlab.com/',
+    url: 'https://harvest2-dev.gxlab.com/',
   },
 ];
 
@@ -155,32 +155,32 @@ const stagingUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead Staging',
-    url: 'https://projects-staging.gexlab.com/',
+    url: 'https://projects-staging.gxlab.com/',
     overrideHealthRoute: 'siteInfo',
   },
   {
     id: 'shepherd',
     title: 'Shepherd Staging',
-    url: 'https://accounts-staging.gexlab.com/',
+    url: 'https://accounts-staging.gxlab.com/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone Staging',
-    url: 'https://dropzone-staging.gexlab.com/',
+    url: 'https://dropzone-staging.gxlab.com/',
   },
   {
     id: 'silo',
     title: 'Silo Staging',
-    url: 'https://silo-stg.gexlab.com/',
+    url: 'https://silo-stg.gxlab.com/',
   },
   /* {
     title: 'Analytics',
-    url: 'https://analytics.gexlab.com/assets/config/site.json',
+    url: 'https://analytics.gxlab.com/assets/config/site.json',
   }, */
   {
     id: 'harvest2',
     title: 'Harvest 2 Staging',
-    url: 'https://harvest2-staging.gexlab.com/',
+    url: 'https://harvest2-staging.gxlab.com/',
   },
 ];
 
@@ -188,32 +188,32 @@ const prodUrls: FLRoute[] = [
   {
     id: 'homestead',
     title: 'Homestead',
-    url: 'https://projects.gexlab.com/',
+    url: 'https://projects.gxlab.com/',
     overrideHealthRoute: 'siteInfo',
   },
   {
     id: 'shepherd',
     title: 'Shepherd',
-    url: 'https://accounts.gexlab.com/',
+    url: 'https://accounts.gxlab.com/',
   },
   {
     id: 'dropzone',
     title: 'Dropzone',
-    url: 'https://dropzone.gexlab.com/',
+    url: 'https://dropzone.gxlab.com/',
   },
   {
     id: 'silo',
     title: 'Silo',
-    url: 'https://silo.gexlab.com/',
+    url: 'https://silo.gxlab.com/',
   },
   /* {
     title: 'Analytics',
-    url: 'https://analytics.gexlab.com/assets/config/site.json',
+    url: 'https://analytics.gxlab.com/assets/config/site.json',
   }, */
   {
     id: 'harvest2',
     title: 'Harvest 2',
-    url: 'https://harvest2.gexlab.com/',
+    url: 'https://harvest2.gxlab.com/',
   },
 ];
 

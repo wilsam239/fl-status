@@ -1,8 +1,8 @@
 {
   "name": "fl-status",
   "version": "1.0.1",
-  "description": "GeXLab suite status checker",
-  "productName": "GeXLab Status",
+  "description": "GXLab suite status checker",
+  "productName": "GXLab Status",
   "author": "Sam Williamson <swilliamson239@hotmail.com>",
   "private": true,
   "scripts": {

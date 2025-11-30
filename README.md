@@ -1,4 +1,4 @@
-# GeXLab Status Checker
+# GXLab Status Checker
 
 Dashboard to view the status of all gitlab pipelines
 
